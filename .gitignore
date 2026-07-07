@@ -1,1 +1,4 @@
-BookSpread_Renamer/
+bin/
+obj/
+.vs/
+*.user

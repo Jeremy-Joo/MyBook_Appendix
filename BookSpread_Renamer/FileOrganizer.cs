@@ -42,7 +42,9 @@ namespace BookSpread_Renamer
             int total = targetFiles.Length;
             Console.WriteLine($"총 {total}개 파일을 분류합니다...");
 
-            // 폴더 구조: 한글|영문 → 카테고리 → epub|pdf
+            // 폴더 구조: 한글|영문 → 카테고리 → epub|pdf → 연도(2024/2025/2026/이전)
+            // 통계용 연도 캐시: 이동 후에는 원래 경로에서 메타데이터를 읽을 수 없으므로 이동 전에 저장
+            var yearGroups = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             foreach (var category in byCategory)
             {
                 foreach (string filePath in category.Value)
@@ -52,7 +54,9 @@ namespace BookSpread_Renamer
                         string fileName = Path.GetFileName(filePath);
                         string lang = BookClassifier.IsKoreanBook(fileName) ? "한글" : "영문";
                         string format = Path.GetExtension(filePath).TrimStart('.').ToLower();
-                        string targetDir = Path.Combine(resultRoot, lang, category.Key, format);
+                        string yearGroup = PublicationYearReader.GetYearGroup(filePath);
+                        yearGroups[filePath] = yearGroup;
+                        string targetDir = Path.Combine(resultRoot, lang, category.Key, format, yearGroup);
                         Directory.CreateDirectory(targetDir);
                         string destPath = GetSafeCopyPath(targetDir, fileName);
                         if (!File.Exists(destPath))
@@ -80,7 +84,11 @@ namespace BookSpread_Renamer
             {
                 int korean = category.Value.Count(f => BookClassifier.IsKoreanBook(Path.GetFileName(f)));
                 int english = category.Value.Count - korean;
-                Console.WriteLine($"  {category.Key}: {category.Value.Count}개 (한글 {korean}, 영문 {english})");
+                string yearStats = string.Join(", ", category.Value
+                    .GroupBy(f => yearGroups.TryGetValue(f, out string yg) ? yg : "?")
+                    .OrderBy(g => g.Key, StringComparer.Ordinal)
+                    .Select(g => $"{g.Key} {g.Count()}"));
+                Console.WriteLine($"  {category.Key}: {category.Value.Count}개 (한글 {korean}, 영문 {english} | {yearStats})");
             }
         }
 
@@ -117,8 +125,9 @@ namespace BookSpread_Renamer
                     string fileName = Path.GetFileName(file);
                     string lang = BookClassifier.IsKoreanBook(fileName) ? "한글" : "영문";
                     string format = Path.GetExtension(file).TrimStart('.').ToLower();
-                    // 폴더 구조: 한글|영문 → 카테고리 → epub|pdf
-                    string targetDir = Path.Combine(root, lang, BookClassifier.ClassifyCategory(fileName, file), format);
+                    string yearGroup = PublicationYearReader.GetYearGroup(file);
+                    // 폴더 구조: 한글|영문 → 카테고리 → epub|pdf → 연도(2024/2025/2026/이전)
+                    string targetDir = Path.Combine(root, lang, BookClassifier.ClassifyCategory(fileName, file), format, yearGroup);
 
                     // 이미 올바른 위치에 있으면 건너뜀
                     if (string.Equals(Path.GetDirectoryName(file), targetDir, StringComparison.OrdinalIgnoreCase))
