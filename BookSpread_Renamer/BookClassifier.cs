@@ -31,12 +31,17 @@ namespace BookSpread_Renamer
                     "프롬프트", "Prompt Engineering",
                     "Node.js", "Nodejs", "FastAPI", "REST", "RESTful",
                     "programming", "algorithm", "database", "network", "cybersecurity", "cloud", "devops", "docker", "kubernetes",
-                    "API", "Visual Studio", "안드로이드", "Android", "iOS", "아이폰"
+                    "API", "Visual Studio", "안드로이드", "Android", "iOS", "아이폰",
+                    "AI", "GPT", "컴퓨터", "소프트웨어", "하드웨어", "개발자", "데이터", "SQL", "오라클",
+                    "노션", "Notion", "쿠버네티스", "도커", "임베디드", "신경망", "객체지향", "리팩터링",
+                    "마이크로서비스", "유니티", "Unity", "해커", "백엔드", "운영체제", "자동화",
+                    "HTML", "CSS", "자바스크립트", "JavaScript", "jQuery", "스프링", "JPA", "파이토치",
+                    "포토샵", "일러스트레이터", "오토캐드"
                 }
             },
             {
                 "게임",
-                new List<string>() { "게임", "warcraft", "체스", "game", "chess", "rpg", "strategy" }
+                new List<string>() { "게임", "warcraft", "워크래프트", "체스", "바둑", "홀덤", "포커", "game", "chess", "rpg", "strategy" }
             },
             {
                 "경제",
@@ -46,6 +51,8 @@ namespace BookSpread_Renamer
                     "차트", "기술적 분석", "퀀트", "절세", "세금", "회계학", "화폐", "암호화폐", "비트코인",
                     "돈", "부자", "부의", "자산", "금리", "달러", "채권", "배당", "연금", "리츠",
                     "인플레", "재테크", "무역", "코인", "증권", "주가", "시세",
+                    "매매", "트레이딩", "스캘핑", "코스피", "종목", "공매도", "경매", "보험", "세무", "은퇴",
+                    "버핏", "반도체", "이차전지", "자본주의",
                     "economics", "finance", "investment", "stock", "wealth", "money", "trading", "bitcoin", "crypto", "accounting"
                 }
             },
@@ -54,6 +61,7 @@ namespace BookSpread_Renamer
                 new List<string>()
                 {
                     "경영", "마케팅", "창업", "브랜드", "스타트업", "광고", "세일즈", "MBA",
+                    "마케터", "리더십", "팀장", "비즈니스",
                     "management", "marketing", "startup", "entrepreneurship", "branding", "advertising", "sales"
                 }
             },
@@ -62,6 +70,8 @@ namespace BookSpread_Renamer
                 new List<string>()
                 {
                     "물리", "화학", "생리", "진화", "미생물", "재미있는 이야기", "수학",
+                    "양자", "유전자", "우주", "원소", "날씨", "지진", "방사선", "생물학", "통계", "미적분",
+                    "열역학", "코스모스", "사피엔스",
                     "physics", "chemistry", "biology", "evolution", "mathematics", "science", "quantum", "astronomy"
                 }
             },
@@ -70,6 +80,7 @@ namespace BookSpread_Renamer
                 new List<string>()
                 {
                     "심리", "뇌과학", "인지과학", "트라우마", "상담", "정신분석",
+                    "도파민", "감정", "성격", "스트레스", "우울", "회복탄력성",
                     "psychology", "neuroscience", "cognitive", "behavioral", "mental health", "therapy", "trauma"
                 }
             },
@@ -78,12 +89,14 @@ namespace BookSpread_Renamer
                 new List<string>()
                 {
                     "역사", "세계사", "중국사", "유럽사", "제국", "그리스인", "한국사",
+                    "실록", "조선왕조", "삼국지", "삼국유사", "초한지", "로마사", "중세", "혁명사",
+                    "일본사", "미국사", "러시아사", "프랑스사", "영국사", "독일사", "인도사",
                     "history", "civilization", "ancient", "medieval", "renaissance", "dynasty"
                 }
             },
             {
                 "문학",
-                new List<string>() { "소설", "시집", "에세이", "문학", "단편", "평전", "novel", "fiction", "poetry", "literature" }
+                new List<string>() { "소설", "시집", "에세이", "문학", "단편", "평전", "베르베르", "해리 포터", "novel", "fiction", "poetry", "literature" }
             },
             {
                 "스포츠",
@@ -98,12 +111,19 @@ namespace BookSpread_Renamer
                 new List<string>()
                 {
                     "습관", "성공", "동기부여", "시간관리", "마인드", "군주론",
+                    "법칙", "멘탈", "루틴", "몰입", "집중력", "원칙", "공부법", "독서법", "독학", "말하기", "말투",
                     "habit", "success", "motivation", "mindset", "leadership", "productivity", "discipline", "confidence"
                 }
             },
             {
                 "철학·종교",
-                new List<string>() { "철학", "종교", "논어", "맹자", "불교", "기독교", "니체", "소크라테스", "philosophy", "ethics", "stoicism", "religion", "bible", "meditation" }
+                new List<string>()
+                {
+                    "철학", "종교", "논어", "맹자", "불교", "기독교", "니체", "소크라테스",
+                    "명상", "쇼펜하우어", "채근담", "명심보감", "사서삼경", "플라톤",
+                    "사주", "명리", "운세", "관상", "타로",
+                    "philosophy", "ethics", "stoicism", "religion", "bible", "meditation"
+                }
             },
             {
                 "사회·정치",
@@ -111,15 +131,15 @@ namespace BookSpread_Renamer
             },
             {
                 "건강",
-                new List<string>() { "건강", "의학", "응급", "병리", "해부", "health", "medicine", "anatomy", "fitness", "nutrition", "diet", "wellness" }
+                new List<string>() { "건강", "의학", "응급", "병리", "해부", "운동", "다이어트", "의사", "병원", "소아과", "트레이닝", "동의보감", "한의학", "health", "medicine", "anatomy", "fitness", "nutrition", "diet", "wellness" }
             },
             {
                 "예술·디자인",
-                new List<string>() { "디자인", "건축", "미술", "사진", "드로잉", "design", "architecture", "art", "photography", "illustration", "typography" }
+                new List<string>() { "디자인", "건축", "미술", "사진", "드로잉", "스케치", "피아노", "클래식", "촬영", "design", "architecture", "art", "photography", "illustration", "typography" }
             },
             {
                 "외국어",
-                new List<string>() { "영어", "일본어", "문법", "회화", "단어", "TOEFL", "TOEIC", "TEPS", "grammar", "vocabulary", "pronunciation", "conversation" }
+                new List<string>() { "영어", "일본어", "문법", "회화", "단어", "중국어", "러시아어", "스페인어", "라틴어", "한자", "어휘", "TOEFL", "TOEIC", "TEPS", "grammar", "vocabulary", "pronunciation", "conversation" }
             },
             {
                 "범죄·수사",
@@ -143,11 +163,16 @@ namespace BookSpread_Renamer
             },
             {
                 "생활실용",
-                new List<string>() { "생활", "청소", "수납", "요리", "정리", "cooking", "recipe", "cleaning", "organizing", "household" }
+                new List<string>()
+                {
+                    "생활", "청소", "수납", "요리", "정리",
+                    "육아", "아기", "임신", "출산", "커피", "와인", "맥주", "바리스타", "여행", "자동차", "운전",
+                    "cooking", "recipe", "cleaning", "organizing", "household"
+                }
             },
             {
                 "글쓰기",
-                new List<string>() { "글쓰기", "라이팅", "writing", "copywriting", "storytelling", "screenplay" }
+                new List<string>() { "글쓰기", "라이팅", "보고서", "문장력", "필사", "맞춤법", "문해력", "카피", "writing", "copywriting", "storytelling", "screenplay" }
             }
         };
 
