@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace BookSpread_Renamer
 {
@@ -66,6 +67,35 @@ namespace BookSpread_Renamer
                         MessageBox.Show("이미 등록된 경로입니다.", "알림", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
+        }
+
+        private void AddPathInput_Click(object sender, RoutedEventArgs e) => AddPathFromInput();
+
+        private void PathInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) AddPathFromInput();
+        }
+
+        private void AddPathFromInput()
+        {
+            // 탐색기 "경로로 복사"의 따옴표 제거
+            string path = PathInputBox.Text.Trim().Trim('"').Trim();
+            if (path.Length == 0) return;
+
+            if (!Directory.Exists(path))
+            {
+                MessageBox.Show($"존재하지 않는 폴더입니다:\n{path}", "알림", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (AppConfig.Instance.AddSourcePath(path))
+            {
+                _sourcePaths.Add(path);
+                RefreshRecent();
+                PathInputBox.Clear();
+            }
+            else
+                MessageBox.Show("이미 등록된 경로입니다.", "알림", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void RemovePath_Click(object sender, RoutedEventArgs e)

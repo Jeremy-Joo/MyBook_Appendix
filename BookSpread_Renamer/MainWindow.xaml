@@ -33,6 +33,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <!-- 현재 검색 경로 목록 -->
@@ -43,8 +44,19 @@
                     <Button Content="제거" Width="90" Click="RemovePath_Click"/>
                 </StackPanel>
 
-                <!-- 최근 사용 경로 -->
+                <!-- 경로 직접 입력 (탐색기 주소 붙여넣기 후 Enter) -->
                 <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
+                    <TextBlock DockPanel.Dock="Left" Text="직접 입력:" VerticalAlignment="Center"
+                               Margin="0,0,8,0" FontSize="11"/>
+                    <Button DockPanel.Dock="Right" Content="추가" Width="55" Margin="6,0,0,0"
+                            Click="AddPathInput_Click"/>
+                    <TextBox x:Name="PathInputBox" VerticalContentAlignment="Center"
+                             KeyDown="PathInput_KeyDown"
+                             ToolTip="탐색기 주소창의 경로를 붙여넣고 Enter를 누르세요"/>
+                </DockPanel>
+
+                <!-- 최근 사용 경로 -->
+                <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
                     <TextBlock DockPanel.Dock="Left" Text="최근 경로:" VerticalAlignment="Center"
                                Margin="0,0,8,0" FontSize="11"/>
                     <Button DockPanel.Dock="Right" Content="추가" Width="55" Margin="6,0,0,0"
