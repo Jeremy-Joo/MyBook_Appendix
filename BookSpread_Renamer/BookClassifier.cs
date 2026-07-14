@@ -52,7 +52,7 @@ namespace BookSpread_Renamer
                     "돈", "부자", "부의", "자산", "금리", "달러", "채권", "배당", "연금", "리츠",
                     "인플레", "재테크", "무역", "코인", "증권", "주가", "시세",
                     "매매", "트레이딩", "스캘핑", "코스피", "종목", "공매도", "경매", "보험", "세무", "은퇴",
-                    "버핏", "반도체", "이차전지", "자본주의",
+                    "버핏", "반도체", "이차전지", "자본주의", "산업", "대전망",
                     "economics", "finance", "investment", "stock", "wealth", "money", "trading", "bitcoin", "crypto", "accounting"
                 }
             },
@@ -112,6 +112,7 @@ namespace BookSpread_Renamer
                 {
                     "습관", "성공", "동기부여", "시간관리", "마인드", "군주론",
                     "법칙", "멘탈", "루틴", "몰입", "집중력", "원칙", "공부법", "독서법", "독학", "말하기", "말투",
+                    "목표", "OKR",
                     "habit", "success", "motivation", "mindset", "leadership", "productivity", "discipline", "confidence"
                 }
             },

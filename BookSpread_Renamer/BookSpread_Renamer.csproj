@@ -73,6 +73,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PublicationYearReader.cs" />
+    <Compile Include="SeriesDetector.cs" />
     <Compile Include="SourcePathManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
